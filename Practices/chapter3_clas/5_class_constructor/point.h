@@ -12,11 +12,13 @@
 class Point{
 private:
     int x, y;
+    int *p;
 public:
     void set();
     void show();
 
     Point();
+    /*This is the reloading of the constructor*/
     Point(int a, int b);
     virtual ~Point();
 };

@@ -24,16 +24,22 @@ void Point::set(){
 }
 
 // This is the constructor
+
+
 Point::Point(){
+    p = new int;        //Open a space for int type pointer
     cout << "here the constructor(with no parameters) is being called" << endl;
 }
 
+
 // This is the destructor
 Point::~Point(){
+    delete p;          //delete the space occupied by the pointer while the class calling finish
     cout << "here the destructor is being called" << endl;
 }
 
 // This is the reload of the constructor
+// This is the reload of the constructor which has two default parameters
 Point::Point(int a, int b)
 {
     x = a;

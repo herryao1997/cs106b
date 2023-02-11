@@ -21,6 +21,12 @@
  *
  * }
  * ==================================================================
+ * - destructor will be automatically called while the function exit
+ * - when the new is used in the member function for some pointer member usage, the delete is needed
+ *  in the destructor to clear the space, which is super important for running safety of system.
+ * - as the constructor, if the destructor is not defined it will be defined in default by the system,
+ *  while without any function, so when the new command used, the destructor must be rewrote by users
+ *
  */
 
 #include <iostream>
@@ -41,6 +47,8 @@ int main() {
     cout << "---------------------------------" << endl;
     Point p4(1, 2);
     p4.show();
+    cout << "---------------------------------" << endl;
+    //Point p5("sda");
     return 0;
 }
 
