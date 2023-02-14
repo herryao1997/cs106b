@@ -69,10 +69,8 @@ DEFINES     +=  main=qMain qMain=studentMain
 # Qt looks for first 'SOURCES *=' line and lists user-added .cpp/h files there.
 # Afterward we glob-add files to SOURCES ourselves. Operator *= will unique
 # entries, so no worries about duplicates
-SOURCES         *=  "" \
-    mystring.cpp
-HEADERS         *=  "" \
-    mystring.h
+SOURCES         *=  ""
+HEADERS         *=  ""
 
 # Gather any .cpp or .h files within the project folder (student/starter code).
 # Second argument true makes search recursive
