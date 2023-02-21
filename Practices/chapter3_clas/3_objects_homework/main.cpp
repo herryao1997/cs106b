@@ -13,22 +13,37 @@ using namespace std;
 
 const int PI = acos(-1);
 
-class Circle{
+class Shape{
+ public:
+    Shape(){
+        cout << "at 0" << endl;
+    }
+
+};
+
+class Composition{
+public:
+    Composition(){
+        cout << "at 3" << endl;
+    }
+};
+
+class Circle:public Shape{
 private:
     int radius;
+    Composition com;
 public:
     void setRadius();
     void getPerimeter();
     void getArea();
+    Circle(){
+        cout << "at 1" << endl;
+    }
 };
 
 int main() {
     Circle c;
-    Circle *pc = &c;
-    Circle &rc = c;
-    rc.setRadius();
-    c.getPerimeter();
-    pc -> getArea();
+
     return 0;
 }
 
