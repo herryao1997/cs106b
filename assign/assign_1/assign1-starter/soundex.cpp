@@ -25,8 +25,8 @@ using namespace std;
  * replace it with a description of the bug you fixed.
  */
 string removeNonLetters(string s) {
-    string result = charToString(s[0]);
-    for (int i = 1; i < s.length(); i++) {
+    string result = "";
+    for (int i = 0; i < s.length(); i++) {
         if (isalpha(s[i])) {
             result += s[i];
         }
@@ -34,15 +34,114 @@ string removeNonLetters(string s) {
     return result;
 }
 
+string capital(string s){
+    string result = "";
+    for (int i = 0; i < s.length(); i++){
+        result.push_back(toupper(s[i]));
+    }
+
+    return result;
+}
+
+string decoding(const string& name){
+    string zero = "AEIOUHWY";
+    string one = "BFPV";
+    string two = "CGJKQSXZ";
+    string three = "DT";
+    string four = "L";
+    string five = "MN";
+    string six = "R";
+    string code = "";
+    for(int i = 0; i < name.length(); i++){
+        if (zero.find(name[i]) != string::npos)
+            code += '0';
+        else if (one.find(name[i]) != string::npos)
+            code += '1';
+        else if (two.find(name[i]) != string::npos)
+            code += '2';
+        else if (three.find(name[i]) != string::npos)
+            code += '3';
+        else if (four.find(name[i]) != string::npos)
+            code += '4';
+        else if (five.find(name[i]) != string::npos)
+            code += '5';
+        else if (six.find(name[i]) != string::npos)
+            code += '6';
+    }
+
+    return code;
+}
+
+string uniq(string code){
+    string uniq = charToString(code[0]);
+    char temp = code[0];
+    for(int i = 1; i < code.length(); i++){
+        if (temp == code[i])
+            continue;
+        uniq.push_back(code[i]);
+        temp = code[i];
+    }
+
+    return uniq;
+}
+
+string letter1(string uniq, string capital_name){
+    string result = charToString(capital_name[0]);
+    for(int i = 1; i < uniq.length(); i++){
+        result.push_back(uniq[i]);
+    }
+
+    return result;
+}
+
+string nonZero(string uniq){
+    string non0 = "";
+    for(int i = 0; i < uniq.length(); i++){
+        if (uniq[i] == '0')
+            continue;
+        non0.push_back(uniq[i]);
+    }
+
+    return non0;
+}
+
 
 /* TODO: Replace this comment with a descriptive function
  * header comment.
  */
-string soundex(string s) {
-    /* TODO: Fill in this function. */
-    return "";
+string Result(string non0){
+    string result = non0;
+    int length = non0.length();
+    if (length > 4){
+        for(int i = 0; i < length - 4; i++){
+            result.pop_back();
+        }
+        return result;
+    }
+
+    else if (length < 4){
+        for(int i = 0; i < 4 - length; i++){
+            result.push_back('0');
+        }
+        return result;
+    }
+
+    return result;
 }
 
+string soundex(string s) {
+    /* TODO: Fill in this function. */
+    string letter_all = removeNonLetters(s);
+    string cap = capital(letter_all);
+    string code = decoding(cap);
+    string result = uniq(code);
+    result = letter1(result, cap);
+    result = nonZero(result);
+    result = Result(result);
+
+
+    return result;
+}
 
 /* TODO: Replace this comment with a descriptive function
  * header comment.
@@ -61,8 +160,28 @@ void soundexSearch(string filepath) {
 
     // The names in the database are now stored in the provided
     // vector named databaseNames
-
+    string input;
+    vector<string> result;
     /* TODO: Fill in the remainder of this function. */
+    while(true){
+        cout << "please enter the name: ";
+        input = getLine();
+        if (input == "q" || input == "Q")
+            break;
+        string code = soundex(input);
+        for(auto ite: databaseNames){
+            if(soundex(ite) == code)
+                result.push_back(ite);
+        }
+        cout << "match from database: {";
+        for(auto ite: result){
+            if(ite == result.back()){
+                cout << ite << "}";
+                break;
+            }
+            cout << ite << " ,";
+        }
+    }
 }
 
 
@@ -70,6 +189,7 @@ void soundexSearch(string filepath) {
 
 
 PROVIDED_TEST("Test removing puntuation, digits, and spaces") {
+    soundex("0Curie");
     string s = "O'Hara";
     string result = removeNonLetters(s);
     EXPECT_EQUAL(result, "OHara");
@@ -105,6 +225,7 @@ PROVIDED_TEST("Tessier-Lavigne has a hyphen") {
 
 PROVIDED_TEST("Au consists of only vowels") {
     EXPECT_EQUAL(soundex("Au"), "A000");
+    EXPECT_EQUAL(soundex("YAOCHENGXI"), soundex("Yegnashankaran"));
 }
 
 PROVIDED_TEST("Egilsdottir is long and starts with a vowel") {
@@ -135,4 +256,9 @@ PROVIDED_TEST("Ashcraft is not a special case") {
 
 // TODO: add your test cases here
 
-
+STUDENT_TEST("Expose the error in code"){
+    string s = "1ASD";
+    string result = removeNonLetters(s);
+    EXPECT_EQUAL(result, string("ASD"));
+    soundexSearch("res/surnames.txt");
+}

@@ -20,12 +20,11 @@ using namespace std;
  */
 long divisorSum(long n) {
     long total = 0;
-    for (long divisor = 1; divisor < n; divisor++) {
-        if (n % divisor == 0) {
+    for(long divisor = 1; divisor < n; divisor++){
+        if(n % divisor == 0)
             total += divisor;
-        }
     }
-    return total;
+            return total;
 }
 
 /* This function takes one argument `n` and returns a boolean
@@ -34,7 +33,7 @@ long divisorSum(long n) {
  * of its proper divisors is equal to itself.
  */
 bool isPerfect(long n) {
-    return (n != 0) && (n == divisorSum(n));
+    return (n == divisorSum(n)) && (n != 0);
 }
 
 /* This function does an exhaustive search for perfect numbers.
@@ -43,13 +42,13 @@ bool isPerfect(long n) {
  * printing it to the console.
  */
 void findPerfects(long stop) {
-    for (long num = 1; num < stop; num++) {
-        if (isPerfect(num)) {
-            cout << "Found perfect number: " << num << endl;
-        }
-        if (num % 10000 == 0) cout << "." << flush; // progress bar
+    for(long num = 1; num < stop; num++){
+        if(isPerfect(num))
+            cout << "found perfect num: " << num << endl;
+        if(num % 10000 == 0)
+            cout << ". " << flush;
     }
-    cout << endl << "Done searching up to " << stop << endl;
+    cout << "done searching up to " << stop << endl;
 }
 
 /* TODO: Replace this comment with a descriptive function
@@ -57,7 +56,17 @@ void findPerfects(long stop) {
  */
 long smarterSum(long n) {
     /* TODO: Fill in this function. */
-    return 0;
+    if(n == 1)
+        return 0;
+    long total = 0;
+    long root = sqrt(n);
+    for(long divisor = 1; divisor <= root; divisor++){
+        if(n % divisor == 0)
+            total += (divisor + n / divisor);
+    }
+    if(root * root == n)
+        total -= root;
+    return total - n;
 }
 
 /* TODO: Replace this comment with a descriptive function
@@ -65,7 +74,7 @@ long smarterSum(long n) {
  */
 bool isPerfectSmarter(long n) {
     /* TODO: Fill in this function. */
-    return false;
+    return (smarterSum(n) == n);
 }
 
 /* TODO: Replace this comment with a descriptive function
@@ -73,6 +82,13 @@ bool isPerfectSmarter(long n) {
  */
 void findPerfectsSmarter(long stop) {
      /* TODO: Fill in this function. */
+    for(long num = 1; num < stop; num++){
+        if(isPerfectSmarter(num))
+            cout << "found perfect num: " << num << endl;
+        if(num % 10000 == 0)
+            cout << ". " << flush;
+    }
+    cout << "done searching up to " << stop << endl;
 }
 
 /* TODO: Replace this comment with a descriptive function
@@ -80,7 +96,21 @@ void findPerfectsSmarter(long stop) {
  */
 long findNthPerfectEuclid(long n) {
     /* TODO: Fill in this function. */
-    return 0;
+    long k = 1;
+    long m = 0;
+    long count = 0;
+    long perfect;
+    while(n - count){
+        m = pow(2, k) - 1;
+        if(smarterSum(m) == 1){
+            count += 1;
+            perfect = pow(2, k-1) * (pow(2, k) - 1);
+            cout << perfect << '\t';
+        }
+        k++;
+    }
+    cout << endl;
+    return perfect;
 }
 
 
@@ -117,10 +147,38 @@ PROVIDED_TEST("Confirm 33550336 is perfect") {
 }
 
 PROVIDED_TEST("Time trials of findPerfects on doubling input sizes") {
-    TIME_OPERATION(10000, findPerfects(10000));
-    TIME_OPERATION(20000, findPerfects(20000));
-    TIME_OPERATION(40000, findPerfects(40000));
+//    TIME_OPERATION(10000, findPerfects(10000));
+//    TIME_OPERATION(20000, findPerfects(20000));
+//    TIME_OPERATION(40000, findPerfects(40000));
+    TIME_OPERATION(5,findNthPerfectEuclid(5));
 }
 
 // TODO: add your student test cases here
 
+STUDENT_TEST("Time trials of findPerfects on doubling input sizes"){
+//    TIME_OPERATION(30000, findPerfects(30000));
+//    TIME_OPERATION(60000, findPerfectsSmarter(30000));
+//    TIME_OPERATION(60000, findPerfects(60000));
+//    TIME_OPERATION(60000, findPerfectsSmarter(60000));
+//    TIME_OPERATION(120000, findPerfects(120000));
+//    TIME_OPERATION(120000, findPerfectsSmarter(120000));
+}
+
+STUDENT_TEST("Confirm the negative values for isPerfect"){
+    EXPECT(!isPerfect(-1));
+}
+
+STUDENT_TEST("Confirm the smartSum"){
+    for (long num = 1; num < 10000; ++num) {
+        EXPECT_EQUAL(smarterSum(num), divisorSum(num));
+    }
+    EXPECT_EQUAL(smarterSum(4), divisorSum(4));
+    EXPECT_EQUAL(smarterSum(6), divisorSum(6));
+    EXPECT_EQUAL(smarterSum(12), divisorSum(12));
+    EXPECT_EQUAL(smarterSum(28), divisorSum(28));
+    EXPECT_EQUAL(smarterSum(0), divisorSum(0));
+    EXPECT_EQUAL(smarterSum(1), divisorSum(1));
+    for(long num = 1; num < 4; num++){
+        EXPECT(isPerfect(findNthPerfectEuclid(num)));
+    }
+}

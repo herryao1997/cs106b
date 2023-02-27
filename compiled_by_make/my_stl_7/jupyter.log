@@ -1,0 +1,55 @@
+[I 16:00:46.620 NotebookApp] [jupyter_nbextensions_configurator] enabled 0.4.1
+[I 16:00:46.621 NotebookApp] Serving notebooks from local directory: /home/herryao/cs106b/compiled_by_make/my_stl_7
+[I 16:00:46.621 NotebookApp] Jupyter Notebook 6.4.12 is running at:
+[I 16:00:46.621 NotebookApp] http://localhost:8888/?token=6cefbec0535adc77dac80af2844756194356cd8978703832
+[I 16:00:46.621 NotebookApp]  or http://127.0.0.1:8888/?token=6cefbec0535adc77dac80af2844756194356cd8978703832
+[I 16:00:46.621 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 16:00:46.632 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///home/herryao/.local/share/jupyter/runtime/nbserver-2615-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=6cefbec0535adc77dac80af2844756194356cd8978703832
+     or http://127.0.0.1:8888/?token=6cefbec0535adc77dac80af2844756194356cd8978703832
+[I 16:01:01.810 NotebookApp] Creating new notebook in 
+[W 16:01:02.072 NotebookApp] Config option `template_path` not recognized by `ExporterCollapsibleHeadings`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.079 NotebookApp] Config option `template_path` not recognized by `ExporterCollapsibleHeadings`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.104 NotebookApp] Config option `template_path` not recognized by `TocExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.108 NotebookApp] Config option `template_path` not recognized by `TocExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.121 NotebookApp] Config option `template_path` not recognized by `LenvsHTMLExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.127 NotebookApp] Config option `template_path` not recognized by `LenvsHTMLExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.142 NotebookApp] Config option `template_path` not recognized by `LenvsTocHTMLExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.149 NotebookApp] Config option `template_path` not recognized by `LenvsTocHTMLExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.175 NotebookApp] Config option `template_path` not recognized by `LenvsLatexExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.179 NotebookApp] Config option `template_path` not recognized by `LenvsLatexExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.320 NotebookApp] Config option `template_path` not recognized by `LenvsSlidesExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.324 NotebookApp] Config option `template_path` not recognized by `LenvsSlidesExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.391 NotebookApp] Config option `template_path` not recognized by `ExporterCollapsibleHeadings`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.396 NotebookApp] Config option `template_path` not recognized by `ExporterCollapsibleHeadings`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.423 NotebookApp] Config option `template_path` not recognized by `TocExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.427 NotebookApp] Config option `template_path` not recognized by `TocExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.438 NotebookApp] Config option `template_path` not recognized by `LenvsHTMLExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.444 NotebookApp] Config option `template_path` not recognized by `LenvsHTMLExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.458 NotebookApp] Config option `template_path` not recognized by `LenvsTocHTMLExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.464 NotebookApp] Config option `template_path` not recognized by `LenvsTocHTMLExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.492 NotebookApp] Config option `template_path` not recognized by `LenvsLatexExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.495 NotebookApp] Config option `template_path` not recognized by `LenvsLatexExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.634 NotebookApp] Config option `template_path` not recognized by `LenvsSlidesExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[W 16:01:02.638 NotebookApp] Config option `template_path` not recognized by `LenvsSlidesExporter`.  Did you mean one of: `extra_template_paths, template_name, template_paths`?
+[I 16:01:02.997 NotebookApp] Kernel started: c56e3e03-3099-4545-a4e8-f0402fd9a635, name: python3
+[IPKernelApp] ERROR | No such comm target registered: jupyter.widget.control
+[IPKernelApp] WARNING | No such comm: 8c0c42d9-9417-4549-a501-296dfe456230
+[I 16:03:02.990 NotebookApp] Saving file at /Untitled.ipynb
+[I 16:31:02.984 NotebookApp] Saving file at /Untitled.ipynb
+[I 16:37:02.984 NotebookApp] Saving file at /Untitled.ipynb
+[I 16:39:03.005 NotebookApp] Saving file at /Untitled.ipynb
+[I 16:41:02.995 NotebookApp] Saving file at /Untitled.ipynb
+[I 16:43:02.985 NotebookApp] Saving file at /Untitled.ipynb
+[I 17:01:03.005 NotebookApp] Saving file at /Untitled.ipynb
+[I 17:27:03.003 NotebookApp] Saving file at /Untitled.ipynb
+[I 17:29:03.002 NotebookApp] Saving file at /Untitled.ipynb
+[I 18:06:52.616 NotebookApp] Starting buffering for c56e3e03-3099-4545-a4e8-f0402fd9a635:18364f121c854015a10a83091ce1a2ac
+[C 18:06:52.831 NotebookApp] received signal 15, stopping
+[I 18:06:52.832 NotebookApp] Shutting down 1 kernel
+[I 18:06:52.832 NotebookApp] Kernel shutdown: c56e3e03-3099-4545-a4e8-f0402fd9a635
+[I 18:06:52.934 NotebookApp] Shutting down 0 terminals

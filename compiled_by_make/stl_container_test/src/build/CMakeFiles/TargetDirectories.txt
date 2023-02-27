@@ -1,0 +1,3 @@
+/home/herryao/cs106b/compiled_by_make/stl_container_test/src/build/CMakeFiles/stl_container_test.dir
+/home/herryao/cs106b/compiled_by_make/stl_container_test/src/build/CMakeFiles/edit_cache.dir
+/home/herryao/cs106b/compiled_by_make/stl_container_test/src/build/CMakeFiles/rebuild_cache.dir
