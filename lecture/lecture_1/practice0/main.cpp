@@ -29,7 +29,7 @@ int main() {
 }
 
 int getInput(){
-    int num;
+    int num = 20;
     cout << "please enter a int num: ";
     cin >> num;
     if (num == 0){

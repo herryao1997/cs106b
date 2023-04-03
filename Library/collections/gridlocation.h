@@ -94,15 +94,24 @@ private:
     /*
      * Internal iterator over range of indexes.
      */
-    class GridLocationRangeIterator : public std::iterator<std::input_iterator_tag, GridLocation> {
+    class GridLocationRangeIterator {
     private:
         const GridLocationRange* glr;
         GridLocation loc;
 
     public:
+        using iterator_category = std::input_iterator_tag;
+        using value_type = GridLocation;
+        using difference_type = int;
+        using pointer = const GridLocation*;
+        using reference = const GridLocation&;
+
         GridLocationRangeIterator(const GridLocationRange* glr, bool end)
                 : glr(glr) {
-            if (end) {
+            /* Need to check that the range isn't empty. If the range
+             * is empty, we need to be an end iterator.
+             */
+            if (end || glr->isEmpty()) {
                 loc.row = glr->endRow() + 1;
                 loc.col = glr->endCol() + 1;
             } else {

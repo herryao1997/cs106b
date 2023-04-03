@@ -2,7 +2,7 @@
 # Project file for CS106B/X Library
 #
 # @author Julie Zelenski
-# @version Fall Quarter 2021.1 for Qt 6
+# @version Fall Quarter 2022.1 for Qt 6
 #    build static lib and install into user data
 ###############################################################################
 
@@ -10,14 +10,14 @@ TEMPLATE    =   lib
 TARGET      =   cs106
 CONFIG      +=  staticlib
 
-SPL_VERSION         =   2021.1
+SPL_VERSION         =   2022.1
 REQUIRES_QT_VERSION =   6.1
 
 ###############################################################################
 #       Gather files                                                          #
 ###############################################################################
 
-LIB_SUBDIRS         =   collections console graphics io system util
+LIB_SUBDIRS         =   collections console graphics io system util testing
 
 for(dir, LIB_SUBDIRS) {
     PUBLIC_HEADERS  +=  $$files($${dir}/*.h)

@@ -1,9 +1,9 @@
 /*
  * File: welcome.cpp
- * --------------
+ * -----------------
  * Sample program used to confirm Qt/CS106 install.
  * @author Julie Zelenski
- * @version 2021/09/08
+ * #version 2022/09
  */
 
 #include <iostream>
@@ -11,15 +11,17 @@
 #include "queue.h"
 #include "simpio.h"
 #include "gwindow.h"
+#include "SimpleTest.h"
 using namespace std;
 
 
 void welcomeAlert(string name)
 {
     GWindow* window = new GWindow(300, 200);
-    window->setTitle("Fall Quarter 2021");
+    window->setTitle("Fall Quarter 2022");
     window->setLocation(300, 100);
     window->setExitOnClose(true);
+    window->setResizable(false);
     window->setBackground("White");
     window->clear();
     window->setColor("black");
@@ -37,8 +39,13 @@ void welcomeAlert(string name)
 int main()
 {
     Queue<string> names = {"Leland", "Stanford", "Junior", "University"};
-    cout << "Copyright 2021 " << names << endl;
+    cout << "Copyright 2022 " << names << endl;
     string name = getLine("What is your name?");
     welcomeAlert(name);
     return 0;
+}
+
+// Confirm SimpleTest macros are available and compile
+PROVIDED_TEST("SimpleTest of addition") {
+    EXPECT_EQUAL(1 + 2, 3);
 }
